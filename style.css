@@ -1,0 +1,15 @@
+.quiz {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: auto;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px #aaa;
+  }
+  
+  button {
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
