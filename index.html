@@ -3,19 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Security+ Acronym Quiz</title>
+  <title>Security+ Quiz 2025</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="manifest" href="manifest.json" />
 </head>
 <body>
-  <h1>Security+ Acronym Quiz</h1>
+  <h1>Security+ Quiz</h1>
 
-  <label for="categorySelect">Choose a Category:</label>
-  <select id="categorySelect" onchange="filterByCategory()">
-    <option value="all">All</option>
-  </select>
+  <div class="controls">
+    <label for="categorySelect">Choose a Category:</label>
+    <select id="categorySelect" onchange="filterByCategory()">
+      <option value="all">All</option>
+    </select>
+  </div>
 
   <div class="quiz">
+    <div class="timer-container">
+      <div id="timerBar"></div>
+    </div>
     <p id="question">What does <strong id="acronym">___</strong> stand for?</p>
     <div id="choices"></div>
     <p id="feedback"></p>
