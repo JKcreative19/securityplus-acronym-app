@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Security+ Acronym Quiz</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
 </head>
 <body>
   <h1>Security+ Acronym Quiz</h1>
@@ -18,7 +19,13 @@
     <p id="question">What does <strong id="acronym">___</strong> stand for?</p>
     <div id="choices"></div>
     <p id="feedback"></p>
+    <p id="score">Score: 0</p>
     <button onclick="nextQuestion()">Next</button>
+  </div>
+
+  <div class="review" id="review" style="display:none;">
+    <h2>Review Your Mistakes</h2>
+    <ul id="reviewList"></ul>
   </div>
 
   <script src="script.js"></script>

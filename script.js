@@ -392,3 +392,41 @@ window.onload = () => {
   populateCategoryDropdown();
   showQuestion();
 };
+
+
+let score = 0;
+let wrongAnswers = [];
+
+function checkAnswer(selected, correct, explanation) {
+  const feedback = document.getElementById("feedback");
+  if (selected === correct) {
+    score++;
+    document.getElementById("score").textContent = `Score: ${score}`;
+    feedback.innerHTML = `<span style="color: green;">✅ Correct!</span><br>${explanation}`;
+  } else {
+    feedback.innerHTML = `<span style="color: red;">❌ Wrong! The correct answer is: ${correct}</span><br>${explanation}`;
+    wrongAnswers.push(filteredAcronyms[currentIndex]);
+  }
+}
+
+function showReview() {
+  const reviewDiv = document.getElementById("review");
+  const list = document.getElementById("reviewList");
+  list.innerHTML = "";
+  wrongAnswers.forEach(item => {
+    const li = document.createElement("li");
+    li.innerHTML = `<strong>${item.term}</strong>: ${item.meaning}<br><em>${item.explanation}</em>`;
+    list.appendChild(li);
+  });
+  reviewDiv.style.display = "block";
+}
+
+// Show review automatically after all questions
+function nextQuestion() {
+  currentIndex++;
+  if (currentIndex >= filteredAcronyms.length) {
+    showReview();
+  } else {
+    showQuestion();
+  }
+}
