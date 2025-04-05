@@ -1,1 +1,45 @@
-placeholder
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Security+ Quiz Pro</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body>
+  <header>
+    <h1>Security+ Quiz</h1>
+    <div class="top-controls">
+      <button id="toggleTheme">🌙</button>
+      <button onclick="startExamMode()">🎓 Exam Mode</button>
+    </div>
+  </header>
+
+  <div class="controls">
+    <label for="categorySelect">Category:</label>
+    <select id="categorySelect" onchange="filterByCategory()">
+      <option value="all">All</option>
+    </select>
+  </div>
+
+  <div class="quiz">
+    <div class="timer-container">
+      <div id="timerBar"></div>
+    </div>
+    <p id="question">What does <strong id="acronym">___</strong> stand for?</p>
+    <div id="choices"></div>
+    <p id="feedback"></p>
+    <p id="score">Score: 0</p>
+    <button onclick="nextQuestion()">Next</button>
+    <button onclick="exportProgress()">📤 Export Progress</button>
+  </div>
+
+  <div class="review" id="review" style="display:none;">
+    <h2>Review Your Mistakes</h2>
+    <ul id="reviewList"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
