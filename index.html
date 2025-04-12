@@ -1,30 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Security+ Acronym Quiz</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="manifest" href="manifest.json"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security+ Quiz</title>
+    <meta name="description" content="Free Security+ exam quiz (acronyms and port numbers).">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js');
+        });
+      }
+    </script>
 </head>
 <body>
-  <div id="app">
-    <header>
-      <h1>Security+ Quiz</h1>
-      <button id="modeToggle">🌙</button>
-    </header>
-    <main>
-      <div id="questionContainer"></div>
-      <div id="answersContainer"></div>
-      <div id="timerBar"></div>
-      <button id="nextButton">Next</button>
-    </main>
-    <footer>
-      <button id="restartButton">Restart</button>
-      <button id="exportButton">Export Progress</button>
-    </footer>
-  </div>
-  <script src="data.js"></script>
-  <script src="script.js"></script>
+    <div class="container">
+        <h1>Security+ Quiz</h1>
+        <div id="quiz-controls">
+            <div class="segmented-control">
+                <button data-category="all">All</button>
+                <button data-category="ports">Important Ports</button>
+                <button data-category="domain1">1.0 Threats, Attacks, and Vulnerabilities</button>
+                <button data-category="domain2">2.0 Architecture and Design</button>
+                <button data-category="domain3">3.0 Implementation</button>
+                <button data-category="domain4">4.0 Operations and Incident Response</button>
+                <button data-category="domain5">5.0 Governance, Risk, and Compliance</button>
+            </div>
+            <div class="segmented-control">
+                <button data-mode="quiz">Quiz Mode</button>
+                <button data-mode="exam">Exam Simulation</button>
+                <button data-mode="timer">Timer Mode</button>
+            </div>
+        </div>
+        <div id="quiz-content">
+            <div id="timer-container">
+                Time Remaining: <span id="timer">00:00</span>
+            </div>
+            <div id="progress-bar">
+                <div id="progress-bar-fill"></div>
+            </div>
+            <h2 id="quiz-question"></h2>
+            <div id="quiz-options">
+                <div class="quiz-option" id="option-1"></div>
+                <div class="quiz-option" id="option-2"></div>
+                <div class="quiz-option" id="option-3"></div>
+                <div class="quiz-option" id="option-4"></div>
+            </div>
+            <div id="explanation"></div>
+            <div id="quiz-results">Your Score: <span id="score">0</span></div>
+            <ul id="review-list"></ul>
+            <div class="controls">
+                <button id="export-btn" class="btn btn-secondary">
+                    <span class="btn-icon">&#8681;</span> Export Progress
+                </button>
+                <button id="restart-btn" class="btn btn-primary" style="display:none;">
+                    <span class="btn-icon">&#10226;</span> Restart Quiz
+                </button>
+                <button id="toggle-theme" class="btn btn-secondary">
+                    <span class="btn-icon">&#9680;</span> Toggle Dark Mode
+                </button>
+            </div>
+        </div>
+        <div id="message-box"></div>
+    </div>
+    <script src="js/script.js"></script>
 </body>
 </html>
