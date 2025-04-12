@@ -1,1 +1,30 @@
-placeholder
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Security+ Acronym Quiz</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="manifest" href="manifest.json"/>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Security+ Quiz</h1>
+      <button id="modeToggle">🌙</button>
+    </header>
+    <main>
+      <div id="questionContainer"></div>
+      <div id="answersContainer"></div>
+      <div id="timerBar"></div>
+      <button id="nextButton">Next</button>
+    </main>
+    <footer>
+      <button id="restartButton">Restart</button>
+      <button id="exportButton">Export Progress</button>
+    </footer>
+  </div>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
